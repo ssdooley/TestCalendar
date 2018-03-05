@@ -1,11 +1,24 @@
-﻿<h2 class="todaydate">{{dateService.datedata.today | date:'fullDate'}}</h2>
+﻿<!--<h2 class="todaydate">TODAY: &ensp;{{dateService.datedata.today | date:'fullDate'}}</h2>-->
+<mat-form-field>
+    <input matInput [matDatepicker]="picker" placeholder="Select Date"
+           (dateInput)="addEvent('input', $event)" (dateChange)="addEvent('change', $event)">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
 
+<div class="example-events">
+    <div *ngFor="let e of events">{{e}}</div>
+</div>
+
+<!--<h2>{{dateService.datedata.daysOfMonth}} &ensp; days in the current month of &ensp; {{dateService.datedata.todayMonth}}</h2>-->
+<h2 class="todaydate" *ngIf="selectedDate">{{daysOfSelectedMonth}}&ensp;days in the month of&ensp;{{mmmSelectedMonth}}&ensp;{{selectedYear}}</h2>
+<h2 class="todaydate" *ngIf="selectedDate">The first of the month is on a&ensp;{{mmmDayofFirstMonth}}</h2>
 <section class="container">
     <table class="cal">
         <caption>
             <span class="prev"><a href="index.html">&larr;</a></span>
             <span class="next"><a href="index.html">&rarr;</a></span>
-            <h2 class="todaydate">{{dateService.datedata.todayMonth}}&ensp;{{dateService.datedata.yearDate}}</h2>
+            <h2 class="todaydate">{{todayMonth}}&ensp;{{todayYear}}</h2>
         </caption>
         <thead>
             <tr>
@@ -76,3 +89,4 @@
         </tbody>
     </table>
 </section>
+

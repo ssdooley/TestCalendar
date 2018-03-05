@@ -18,11 +18,13 @@ import { HomeComponent } from './components/home/home.component';
 import { SidepanelComponent } from './components/sidepanel/sidepanel.component';
 
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { Calendar2Component } from './components/calendar2/calendar2.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         CalendarComponent,
+        Calendar2Component,
         HomeComponent,
         SidepanelComponent
     ],
@@ -34,6 +36,7 @@ import { CalendarComponent } from './components/calendar/calendar.component';
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
+            { path: 'calendar2', component: Calendar2Component },
             { path: '**', redirectTo: 'home' }
         ])
     ],
