@@ -27,7 +27,6 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-family: 'Montserrat';
 }
 
 .day-names {
@@ -69,13 +68,12 @@
 }
 
     .week-date:hover {
-        background-color: #00e676;
+        background-color: black;
     }
 
 .date-text {
     z-index: 10;
     font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
 }
 
     .date-text ::after {
@@ -111,7 +109,7 @@
 
 
 .date-text :hover :after {
-    background-color: teal;
+    background-color: black;
 }
 
 
@@ -126,12 +124,15 @@
 }
 
 .trip1 {
+    margin-top: 30px;
     background-color: blue;
-    height: 10px;
+    height: 20px;
+    width: 100%;
 }
 
 .trip2 {
     background-color: orange;
-    margin-top: 10px;
-    height: 10px;
+    margin-top: 50px;
+    height: 20px;
+    width: 100%;
 }

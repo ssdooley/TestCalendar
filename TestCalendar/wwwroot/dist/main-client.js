@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "308099fc4f2ffbe81138"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "d5518acb542c5624ecad"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -26483,12 +26483,23 @@ var Calendar2Component = (function () {
         this.dayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat'];
         this.weeks = [];
         this.sortedDates = [];
+        this.sDate = '20180305';
+        this.eDate = '20180318';
+        this.loc1 = 'KPOB';
+        this.poc1 = 'Dave';
+        this.startDate = __WEBPACK_IMPORTED_MODULE_1_moment__(this.sDate).subtract(1, 'day');
+        this.endDate = __WEBPACK_IMPORTED_MODULE_1_moment__(this.eDate).add(1, 'day');
+        this.sDate2 = '20180317';
+        this.eDate2 = '20180322';
+        this.loc2 = 'KVPS';
+        this.poc2 = 'Chewie';
+        this.startDate2 = __WEBPACK_IMPORTED_MODULE_1_moment__(this.sDate2).subtract(1, 'day');
+        this.endDate2 = __WEBPACK_IMPORTED_MODULE_1_moment__(this.eDate2).add(1, 'day');
         this.selectedDates = [];
         this.onSelectDate = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["EventEmitter"]();
     }
     Calendar2Component.prototype.ngOnInit = function () {
         this.generateCalendar();
-        this.fillTrip1();
         //let readableDate = moment(this.currentDate).format("MMM Do YYYY");
         //console.log('currentdate is: ' + readableDate);
     };
@@ -26508,6 +26519,14 @@ var Calendar2Component = (function () {
         return __WEBPACK_IMPORTED_MODULE_2_lodash__["findIndex"](this.selectedDates, function (selectedDate) {
             return __WEBPACK_IMPORTED_MODULE_1_moment__(date).isSame(selectedDate.mDate, 'day');
         }) > -1;
+    };
+    Calendar2Component.prototype.tripDate = function (date) {
+        var midDate = (this.startDate.diff(this.endDate, 'days') / 2);
+        var midPoint = __WEBPACK_IMPORTED_MODULE_1_moment__(this.startDate).add(midDate, 'day');
+        return __WEBPACK_IMPORTED_MODULE_1_moment__(date).isBetween(this.startDate, this.endDate);
+    };
+    Calendar2Component.prototype.tripDate2 = function (date) {
+        return __WEBPACK_IMPORTED_MODULE_1_moment__(date).isBetween(this.startDate2, this.endDate2);
     };
     Calendar2Component.prototype.isSelectedMonth = function (date) {
         return __WEBPACK_IMPORTED_MODULE_1_moment__(date).isSame(this.currentDate, 'month');
@@ -26556,6 +26575,7 @@ var Calendar2Component = (function () {
         console.log('first of month is: ' + __WEBPACK_IMPORTED_MODULE_1_moment__(firstOfMonth).format("MMM Do YYYY"));
         console.log('first day of grid is: ' + __WEBPACK_IMPORTED_MODULE_1_moment__(firstDayOfGrid).format("MMM Do YYYY"));
         console.log('there are ' + less + ' days in between');
+        this.fillTrip1(start);
         return __WEBPACK_IMPORTED_MODULE_2_lodash__["range"](start, start + 42)
             .map(function (date) {
             var d = __WEBPACK_IMPORTED_MODULE_1_moment__(firstDayOfGrid).date(date);
@@ -26563,16 +26583,21 @@ var Calendar2Component = (function () {
                 today: _this.isToday(d),
                 selected: _this.isSelected(d),
                 mDate: d,
+                trip1: _this.tripDate(d),
+                trip2: _this.tripDate2(d)
             };
         });
     };
-    Calendar2Component.prototype.fillTrip1 = function () {
-        var sDate = '20180313';
-        var eDate = '20180318';
-        var startDate = __WEBPACK_IMPORTED_MODULE_1_moment__(sDate);
-        var endDate = __WEBPACK_IMPORTED_MODULE_1_moment__(eDate);
-        var a = endDate.diff(startDate, 'days');
-        //console.log('days between ' + sDate +  ' and ' + eDate + ' is ' + a);
+    Calendar2Component.prototype.fillTrip1 = function (data) {
+        //var a = endDate.diff(startDate, 'days');
+        ////console.log('days between ' + sDate +  ' and ' + eDate + ' is ' + a);
+        //return _.range(data, data + 42)
+        //    .map((date: number): CalendarDate => {
+        //        const d = moment(data.date()).date(date);
+        //        return {
+        //            trip1: this.isStartDate(d)
+        //        };
+        //    });
     };
     __decorate([
         __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Input"])(),
@@ -30283,7 +30308,7 @@ exports = module.exports = __webpack_require__(51)(undefined);
 
 
 // module
-exports.push([module.i, "\r\n.calendar {\r\n    display: block;\r\n    width: 95%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.calendar {\r\n    box-sizing: border-box;\r\n}\r\n\r\n.calendar-navs {\r\n    background-color: #000000;\r\n    font-size: 30px;\r\n    color: #00e676;\r\n}\r\n\r\n.month-nav {\r\n    padding: 10px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n}\r\n\r\n.year-nav {\r\n    padding: 10px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    font-family: 'Montserrat';\r\n}\r\n\r\n.day-names {\r\n    display: flex;\r\n    flex-direction: row;\r\n    background: #00b0ff;\r\n    border-bottom-right-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    color: black;\r\n    font-weight: bold;\r\n}\r\n\r\n.weeks {\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.month-grid .week {\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n\r\n.week-date,\r\n.day-name {\r\n    text-align: center;\r\n    padding: 10px;\r\n    display: block;\r\n    width: 15%;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    font-size: 18px;\r\n}\r\n\r\n.week-date {\r\n    height: 90px;\r\n    position: relative;\r\n    border: ridge;\r\n}\r\n\r\n    .week-date:hover {\r\n        background-color: #00e676;\r\n    }\r\n\r\n.date-text {\r\n    z-index: 10;\r\n    font-size: 15px;\r\n    font-family: 'Montserrat', sans-serif;\r\n}\r\n\r\n    .date-text ::after {\r\n        content: '';\r\n        height: 28px;\r\n        width: 28px;\r\n        position: absolute;\r\n        top: 50%;\r\n        left: 50%;\r\n        transform: translate(-50%, -50%);\r\n        border-radius: 50%;\r\n        transition: background-color 150ms linear, color 150ms linear;\r\n        z-index: 1;\r\n    }\r\n\r\n.enabled {\r\n    font-weight: bold;\r\n    background-color: #242f41;\r\n}\r\n\r\n.date-text:hover {\r\n    background-color: #3c4b5a;\r\n}\r\n\r\n\r\n.selected {\r\n    color: white;\r\n}\r\n\r\n.date-text :after {\r\n    background-color: teal;\r\n}\r\n\r\n\r\n.date-text :hover :after {\r\n    background-color: teal;\r\n}\r\n\r\n\r\n.disabled {\r\n    color: #899ba9;\r\n}\r\n\r\n\r\n.today {\r\n    font-weight: bold;\r\n    background-color: #2d5671;\r\n}\r\n\r\n.trip1 {\r\n    background-color: blue;\r\n    height: 10px;\r\n}\r\n\r\n.trip2 {\r\n    background-color: orange;\r\n    margin-top: 10px;\r\n    height: 10px;\r\n}\r\n", ""]);
+exports.push([module.i, "\r\n.calendar {\r\n    display: block;\r\n    width: 95%;\r\n    margin: 0 auto;\r\n}\r\n\r\n.calendar {\r\n    box-sizing: border-box;\r\n}\r\n\r\n.calendar-navs {\r\n    background-color: #000000;\r\n    font-size: 30px;\r\n    color: #00e676;\r\n}\r\n\r\n.month-nav {\r\n    padding: 10px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n}\r\n\r\n.year-nav {\r\n    padding: 10px;\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n}\r\n\r\n.day-names {\r\n    display: flex;\r\n    flex-direction: row;\r\n    background: #00b0ff;\r\n    border-bottom-right-radius: 3px;\r\n    border-bottom-left-radius: 3px;\r\n    color: black;\r\n    font-weight: bold;\r\n}\r\n\r\n.weeks {\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n\r\n.month-grid .week {\r\n    display: flex;\r\n    flex-direction: row;\r\n}\r\n\r\n.week-date,\r\n.day-name {\r\n    text-align: center;\r\n    padding: 10px;\r\n    display: block;\r\n    width: 15%;\r\n    display: flex;\r\n    justify-content: flex-start;\r\n    align-items: flex-start;\r\n    font-size: 18px;\r\n}\r\n\r\n.week-date {\r\n    height: 90px;\r\n    position: relative;\r\n    border: ridge;\r\n}\r\n\r\n    .week-date:hover {\r\n        background-color: black;\r\n    }\r\n\r\n.date-text {\r\n    z-index: 10;\r\n    font-size: 15px;\r\n}\r\n\r\n    .date-text ::after {\r\n        content: '';\r\n        height: 28px;\r\n        width: 28px;\r\n        position: absolute;\r\n        top: 50%;\r\n        left: 50%;\r\n        transform: translate(-50%, -50%);\r\n        border-radius: 50%;\r\n        transition: background-color 150ms linear, color 150ms linear;\r\n        z-index: 1;\r\n    }\r\n\r\n.enabled {\r\n    font-weight: bold;\r\n    background-color: #242f41;\r\n}\r\n\r\n.date-text:hover {\r\n    background-color: #3c4b5a;\r\n}\r\n\r\n\r\n.selected {\r\n    color: white;\r\n}\r\n\r\n.date-text :after {\r\n    background-color: teal;\r\n}\r\n\r\n\r\n.date-text :hover :after {\r\n    background-color: black;\r\n}\r\n\r\n\r\n.disabled {\r\n    color: #899ba9;\r\n}\r\n\r\n\r\n.today {\r\n    font-weight: bold;\r\n    background-color: #2d5671;\r\n}\r\n\r\n.trip1 {\r\n    margin-top: 30px;\r\n    background-color: blue;\r\n    height: 20px;\r\n    width: 100%;\r\n}\r\n\r\n.trip2 {\r\n    background-color: orange;\r\n    margin-top: 50px;\r\n    height: 20px;\r\n    width: 100%;\r\n}\r\n", ""]);
 
 // exports
 
@@ -30658,7 +30683,7 @@ module.exports = "<div class=\"mat-typography app-frame\" fxLayout=\"column\" [n
 /* 426 */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"calendar\">\r\n    <div class=\"calendar-navs\">\r\n        <div class=\"month-nav\">\r\n            <button (click)=\"prevMonth()\">&lt;</button>\r\n            <span class=\"p4\">{{ currentDate.format('MMMM') }}</span>\r\n            <button (click)=\"nextMonth()\">&gt;</button>\r\n        </div>\r\n        <div class=\"year-nav\">\r\n            <button (click)=\"prevYear()\">&lt;</button>\r\n            <span>{{ currentDate.format('YYYY') }}</span>\r\n            <button (click)=\"nextYear()\">&gt;</button>\r\n        </div>\r\n    </div>\r\n    <div class=\"month-grid\">\r\n        <div class=\"day-names\">\r\n            <div *ngFor=\"let name of dayNames\" class=\"day-name p9\">\r\n                {{ name }}\r\n            </div>\r\n        </div>\r\n        <div class=\"weeks\">\r\n            <div *ngFor=\"let week of weeks\" class=\"week\">\r\n                <ng-container *ngFor=\"let day of week\">\r\n                    <div class=\"week-date disabled\" *ngIf=\"!isSelectedMonth(day.mDate)\">\r\n                        <span class=\"date-text\">{{ day.mDate.date() }}</span>\r\n                    </div>\r\n                    <div class=\"week-date enabled\"\r\n                         *ngIf=\"isSelectedMonth(day.mDate)\"\r\n                         (click)=\"selectDate(day)\"\r\n                         [ngClass]=\"{ today: day.today, selected: day.selected }\">\r\n                        <span class=\"date-text\">{{ day.mDate.date() }}</span>\r\n                    </div>\r\n                </ng-container>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
+module.exports = "<div class=\"calendar\">\r\n    <div class=\"calendar-navs\">\r\n        <div class=\"month-nav\">\r\n            <button mat-icon-button (click)=\"prevMonth()\">\r\n                <mat-icon>navigate_before</mat-icon>\r\n            </button>\r\n            <span class=\"p4\">{{ currentDate.format('MMMM') }}</span>\r\n            <button mat-icon-button (click)=\"nextMonth()\">\r\n                <mat-icon>navigate_next</mat-icon>\r\n            </button>\r\n        </div>\r\n        <div class=\"year-nav\">\r\n            <button mat-icon-button (click)=\"prevYear()\">\r\n                <mat-icon>navigate_before</mat-icon>\r\n            </button>\r\n            <span>{{ currentDate.format('YYYY') }}</span>\r\n            <button mat-icon-button (click)=\"nextYear()\">\r\n                <mat-icon>navigate_next</mat-icon>\r\n            </button>\r\n        </div>\r\n    </div>\r\n    <div class=\"month-grid\">\r\n        <div class=\"day-names\">\r\n            <div *ngFor=\"let name of dayNames\" class=\"day-name p9\">\r\n                {{ name }}\r\n            </div>\r\n        </div>\r\n        <div class=\"weeks\">\r\n            <div *ngFor=\"let week of weeks\" class=\"week\">\r\n                <ng-container *ngFor=\"let day of week\">\r\n                    <div class=\"week-date disabled\" *ngIf=\"!isSelectedMonth(day.mDate)\">\r\n                        <span class=\"date-text\">{{ day.mDate.date() }}</span>\r\n                    </div>\r\n                    <div class=\"week-date enabled\"\r\n                         *ngIf=\"isSelectedMonth(day.mDate)\"\r\n                         (click)=\"selectDate(day)\"\r\n                         [ngClass]=\"{ today: day.today, selected: day.selected }\">                        \r\n                        <span height=\"100\" width=\"100\" class=\"date-text\">{{ day.mDate.date() }}</span>\r\n                        <div class=\"event\"\r\n                             [ngClass]=\"{ trip1: day.trip1 }\"\r\n                             *ngIf=\"tripDate(day.mDate)\" [matTooltip]=\"poc1\">{{ loc1 }}\r\n                        </div>\r\n                        <br>\r\n                        <div class=\"event\"                             \r\n                             [ngClass]=\"{ trip2: day.trip2 }\"\r\n                             *ngIf=\"tripDate2(day.mDate)\" [matTooltip]=\"poc2\">{{ loc2 }}\r\n                        </div>\r\n                    </div>\r\n                </ng-container>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div>";
 
 /***/ }),
 /* 427 */

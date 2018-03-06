@@ -1,14 +1,22 @@
 ﻿<div class="calendar">
     <div class="calendar-navs">
         <div class="month-nav">
-            <button (click)="prevMonth()">&lt;</button>
+            <button mat-icon-button (click)="prevMonth()">
+                <mat-icon>navigate_before</mat-icon>
+            </button>
             <span class="p4">{{ currentDate.format('MMMM') }}</span>
-            <button (click)="nextMonth()">&gt;</button>
+            <button mat-icon-button (click)="nextMonth()">
+                <mat-icon>navigate_next</mat-icon>
+            </button>
         </div>
         <div class="year-nav">
-            <button (click)="prevYear()">&lt;</button>
+            <button mat-icon-button (click)="prevYear()">
+                <mat-icon>navigate_before</mat-icon>
+            </button>
             <span>{{ currentDate.format('YYYY') }}</span>
-            <button (click)="nextYear()">&gt;</button>
+            <button mat-icon-button (click)="nextYear()">
+                <mat-icon>navigate_next</mat-icon>
+            </button>
         </div>
     </div>
     <div class="month-grid">
@@ -26,8 +34,17 @@
                     <div class="week-date enabled"
                          *ngIf="isSelectedMonth(day.mDate)"
                          (click)="selectDate(day)"
-                         [ngClass]="{ today: day.today, selected: day.selected }">
-                        <span class="date-text">{{ day.mDate.date() }}</span>
+                         [ngClass]="{ today: day.today, selected: day.selected }">                        
+                        <span height="100" width="100" class="date-text">{{ day.mDate.date() }}</span>
+                        <div class="event"
+                             [ngClass]="{ trip1: day.trip1 }"
+                             *ngIf="tripDate(day.mDate)" [matTooltip]="poc1">{{ loc1 }}
+                        </div>
+                        <br>
+                        <div class="event"                             
+                             [ngClass]="{ trip2: day.trip2 }"
+                             *ngIf="tripDate2(day.mDate)" [matTooltip]="poc2">{{ loc2 }}
+                        </div>
                     </div>
                 </ng-container>
             </div>
