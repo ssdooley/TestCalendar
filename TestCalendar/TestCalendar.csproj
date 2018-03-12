@@ -30,15 +30,22 @@
   <ItemGroup>
     <None Remove="ClientApp\app\components\calendar2\calendar2.component.spec.ts" />
     <None Remove="ClientApp\app\components\calendar2\calendar2.component.ts" />
+    <None Remove="ClientApp\app\models\calendar.day.ts" />
+    <None Remove="ClientApp\app\models\calendar.month.ts" />
     <None Remove="ClientApp\app\models\dates.ts" />
+    <None Remove="ClientApp\app\models\schedule.event.ts" />
     <None Remove="ClientApp\app\services\date.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\calendar3\calendar3.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\calendar2\calendar2.component.spec.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\calendar2\calendar2.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\calendar\calendar.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\calendar.day.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\calendar.month.ts" />
     <TypeScriptCompile Include="ClientApp\app\models\dates.ts" />
+    <TypeScriptCompile Include="ClientApp\app\models\schedule.event.ts" />
     <TypeScriptCompile Include="ClientApp\app\services\date.service.ts" />
   </ItemGroup>
 

@@ -1,0 +1,201 @@
+﻿
+.calendar {
+    display: block;
+    width: 99%;
+    margin: 0 auto;
+}
+
+.calendar {
+    box-sizing: border-box;
+}
+
+.calendar-navs {
+    background-color: #000000;
+    font-size: 30px;
+    color: #00e676;
+}
+
+.month-nav {
+    padding-top: 8px;
+    padding-bottom: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.year-nav {
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.day-names {
+    display: flex;
+    flex-direction: row;
+    background: #00b0ff;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    color: black;
+    font-weight: bold;
+    text-align: center;
+}
+
+.weeks {
+    display: block;
+    flex-direction: column;
+}
+.week {
+    display: block;
+}
+
+.month-grid .week {
+    display: flex;
+    flex-direction: row;
+}
+
+.week-date,
+.day-name {
+    text-align: center;
+    padding: 10px;
+    display: block;
+    width: 12.9%;
+    display: flex;
+    align-items: flex-start;
+    font-size: 18px;
+}
+
+.week-format { 
+    display: grid;
+}
+
+.week-date {
+    height: 15px;
+    position: relative;
+    border: ridge;
+}
+
+.month-grid .week-event {
+    display: block;
+    background-color: white;
+    min-height: 100px;
+    position: relative;
+}
+
+    .week-date:hover {
+        background-color: black;
+    }
+
+.date-text {
+    z-index: 10;
+    font-size: 20px;
+    padding: 5px;
+}
+
+.date-text ::after {
+    content: '';
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    transition: background-color 150ms linear, color 150ms linear;
+    z-index: 1;
+}
+
+.enabled {
+    font-weight: bold;
+    background-color: black;
+}
+
+.date-text:hover {
+    background-color: #3c4b5a;
+}
+
+
+.selected {
+    color: white;
+}
+
+.date-text :after {
+    background-color: teal;
+}
+
+
+.date-text :hover :after {
+    background-color: black;
+}
+
+
+.disabled {
+    color: #899ba9;
+    background-color: dimgray;
+}
+
+
+.today {
+    font-weight: bold;
+    background-color: #7fd16b;
+}
+
+.trip1 {
+    background-color: blue;
+    margin-top: 0px;
+    height: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.trip2 {
+    background-color: orange;
+    margin-top: 0px;
+    height: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.triptest {
+    background-color: red;
+    margin-top: 0px;
+    height: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.triptest2 {
+    background-color: green;
+    margin-top: 0px;
+    height: 20px;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.month-grid2 .week {
+   min-height: 20px;
+   display: flex;
+   flex-direction: row;
+}
+
+.week2-date .week-event {
+    min-height: 100px;
+    background-color: black;
+    min-width: 13.75%;
+}
+
+div .week-event .disabled {
+    background-color: dimgray;
+}
+.week2-date {
+    min-height: 20px;
+    min-width: 13.75%;
+    border: ridge;
+}
+.triptest {
+    text-align: center;
+}

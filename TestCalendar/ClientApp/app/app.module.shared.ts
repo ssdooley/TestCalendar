@@ -19,12 +19,14 @@ import { SidepanelComponent } from './components/sidepanel/sidepanel.component';
 
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { Calendar2Component } from './components/calendar2/calendar2.component';
+import { Calendar3Component } from './components/calendar3/calendar3.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         CalendarComponent,
         Calendar2Component,
+        Calendar3Component,
         HomeComponent,
         SidepanelComponent
     ],
@@ -37,6 +39,7 @@ import { Calendar2Component } from './components/calendar2/calendar2.component';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'calendar2', component: Calendar2Component },
+            { path: 'calendar3', component: Calendar3Component },
             { path: '**', redirectTo: 'home' }
         ])
     ],
