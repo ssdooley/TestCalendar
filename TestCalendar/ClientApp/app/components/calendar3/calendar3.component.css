@@ -78,7 +78,7 @@
 .month-grid .week-event {
     display: block;
     background-color: white;
-    min-height: 100px;
+    min-height: 130px;
     position: relative;
 }
 

@@ -41,10 +41,10 @@ export class Calendar3Component implements OnInit, OnChanges {
             { startDate: '20180301', endDate: '20180318', loc: 'KPOB', poc: 'Dave' },
             { startDate: '20180316', endDate: '20180325', loc: 'KMYR', poc: 'Chewie' },
             { startDate: '20180324', endDate: '20180405', loc: 'KRDU', poc: 'External' },
-            { startDate: '20180321', endDate: '20180322', loc: 'Last JSON LOC for March', poc: 'Last JSON POC for March' },
-            { startDate: '20180421', endDate: '20180423', loc: 'Next Month LOC', poc: 'Next Month' },
-            { startDate: '20180425', endDate: '20180428', loc: 'LOC Last for April', poc: 'POC Last for April' },
-            { startDate: '20190321', endDate: '20190323', loc: 'Next Year LOC', poc: 'Next Year' }
+            { startDate: '20180321', endDate: '20180322', loc: 'KVPS', poc: 'New Guy' },
+            { startDate: '20180421', endDate: '20180423', loc: 'KDAL', poc: 'Dave' },
+            { startDate: '20180425', endDate: '20180428', loc: 'KPOB', poc: 'Chewie' },
+            { startDate: '20190321', endDate: '20190323', loc: 'KMYR', poc: 'External' }
         ]
     }
 

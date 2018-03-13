@@ -1,5 +1,4 @@
-﻿<h1>Calendar3</h1>
-<div class="calendar">
+﻿<div class="calendar">
     <div class="calendar-navs">
         <div class="month-nav">
             <button mat-icon-button (click)="prevMonth()">
@@ -34,7 +33,9 @@
                             <span class="date-text">{{ day.mDate.date() }}</span>
                             <!--list events outside of current month-->
                             <div *ngFor="let c of currentEvents">
-                                <div *ngIf="tripDateTest(day.mDate, c)" class="event" [matTooltip]="c.poc">
+                                <div 
+                                     [ngClass]="{ 'trip1': c.poc == 'Dave', 'trip2': c.poc == 'Chewie', 'triptest': c.poc == 'External', 'triptest2': c.poc == 'New Guy' }"
+                                     *ngIf="tripDateTest(day.mDate, c)" class="event" [matTooltip]="c.poc">
                                     {{ c.loc }}
                                 </div>
                             </div>
@@ -50,7 +51,9 @@
                                  (click)="selectDate(day)"
                                  [ngClass]="{ today: day.today, selected: day.selected }">
                                 <div *ngFor="let c of currentEvents">
-                                    <div *ngIf="tripDateTest(day.mDate, c)" class="event" [matTooltip]="c.poc">
+                                    <div 
+                                        [ngClass]="{ 'trip1': c.poc == 'Dave', 'trip2': c.poc == 'Chewie', 'triptest': c.poc == 'External', 'triptest2': c.poc == 'New Guy' }"
+                                        *ngIf="tripDateTest(day.mDate, c)" class="event" [matTooltip]="c.poc">
                                         {{ c.loc }}
                                     </div>
                                 </div>
