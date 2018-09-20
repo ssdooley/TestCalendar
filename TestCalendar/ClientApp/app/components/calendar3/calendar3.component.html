@@ -34,7 +34,7 @@
                             <!--list events outside of current month-->
                             <div *ngFor="let c of currentEvents">
                                 <div 
-                                     [ngClass]="{ 'trip1': c.poc == 'Dave', 'trip2': c.poc == 'Chewie', 'triptest': c.poc == 'External', 'triptest2': c.poc == 'New Guy' }"
+                                     [ngClass]="{ 'trip1': c.poc == 'Bill', 'trip2': c.poc == 'Sam', 'triptest': c.poc == 'Ralph', 'triptest2': c.poc == 'New Guy' }"
                                      *ngIf="tripDateTest(day.mDate, c)" class="event" [matTooltip]="c.poc">
                                     {{ c.loc }}
                                 </div>
@@ -52,7 +52,7 @@
                                  [ngClass]="{ today: day.today, selected: day.selected }">
                                 <div *ngFor="let c of currentEvents">
                                     <div 
-                                        [ngClass]="{ 'trip1': c.poc == 'Dave', 'trip2': c.poc == 'Chewie', 'triptest': c.poc == 'External', 'triptest2': c.poc == 'New Guy' }"
+                                        [ngClass]="{ 'trip1': c.poc == 'Bill', 'trip2': c.poc == 'Sam', 'triptest': c.poc == 'Ralph', 'triptest2': c.poc == 'New Guy' }"
                                         *ngIf="tripDateTest(day.mDate, c)" class="event" [matTooltip]="c.poc">
                                         {{ c.loc }}
                                     </div>
