@@ -38,13 +38,13 @@ export class Calendar3Component implements OnInit, OnChanges {
 
     constructor() {
         this.events = [
-            { startDate: '20180301', endDate: '20180318', loc: 'KPOB', poc: 'Dave' },
-            { startDate: '20180316', endDate: '20180325', loc: 'KMYR', poc: 'Chewie' },
-            { startDate: '20180324', endDate: '20180405', loc: 'KRDU', poc: 'External' },
-            { startDate: '20180321', endDate: '20180322', loc: 'KVPS', poc: 'New Guy' },
-            { startDate: '20180421', endDate: '20180423', loc: 'KDAL', poc: 'Dave' },
-            { startDate: '20180425', endDate: '20180428', loc: 'KPOB', poc: 'Chewie' },
-            { startDate: '20190321', endDate: '20190323', loc: 'KMYR', poc: 'External' }
+            { startDate: '20180301', endDate: '20180318', loc: 'KLAX', poc: 'Ralph' },
+            { startDate: '20180316', endDate: '20180325', loc: 'KLOV', poc: 'Sam' },
+            { startDate: '20180324', endDate: '20180405', loc: 'KDAL', poc: 'Bill' },
+            { startDate: '20180321', endDate: '20180322', loc: 'KLOV', poc: 'New Guy' },
+            { startDate: '20180421', endDate: '20180423', loc: 'KDAL', poc: 'Ralph' },
+            { startDate: '20180425', endDate: '20180428', loc: 'KDEN', poc: 'Sam' },
+            { startDate: '20190321', endDate: '20190323', loc: 'KSEA', poc: 'Bill' }
         ]
     }
 
